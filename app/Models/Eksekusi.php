@@ -11,6 +11,9 @@ class Eksekusi extends Model
     public function datek(){
         $this->belongsTo(Datek::class, 'id_datek');
     }
+    public function order(){
+        return $this->belongsTo(Order::class, 'id_sidnim');
+    }
     public function respondence(){
         $this->hasMany(Respondence::class, 'id_respondence');
     }

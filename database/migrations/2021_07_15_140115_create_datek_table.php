@@ -14,7 +14,8 @@ class CreateDatekTable extends Migration
     public function up()
     {
         Schema::create('datek', function (Blueprint $table) {
-            $table->id('id_datek');
+            $table->id();
+            $table->foreignId('sidnim')->constrained('Order')->onDelete('cascade')->onUpdate('cascade');
             $table->char('metro',15);
             $table->string('metro_port',15);
             $table->string('hostname_gpon',20);
@@ -23,13 +24,12 @@ class CreateDatekTable extends Migration
             $table->string('ip_address_ont', 15);
             $table->string('ont_port', 7);
             $table->string('activity', 50);
-            $table->char('priority', 5);
+            $table->char('priority');
             $table->string('progress', 25);
             $table->string('datek_evidence', 30);
             $table->text ('comment');
             $table->timestamps();
-            $table->string('sidnim');
-            $table->foreign('sidnim')->references('sidnim')->on('order')->onDelete('cascade')->onUpdate('cascade');
+
 
         });
 

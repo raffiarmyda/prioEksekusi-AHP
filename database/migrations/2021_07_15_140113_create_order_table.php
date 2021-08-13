@@ -14,17 +14,19 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('order', function (Blueprint $table) {
-            $table->string('sidnim')->primary();
+            $table->id();
+            $table->string('sidnim');
             $table->string('longitude', 20);
             $table->string('latitude', 20);
             $table->string('witel', 25);
-            $table->string('sto', 30);
-            $table->string('bts_status',10);
-            $table->integer('billed_bandwidth');
-            $table->integer('request_metroport');
-            $table->integer('request_oltport');
-            $table->integer('request_ontport');
-            $table->integer('request_switch');
+            $table->string('sto');
+            $table->string('bts_status');
+            $table->double('billed_bandwidth');
+            $table->double('request_metroport');
+            $table->double('request_oltport');
+            $table->double('request_ontport');
+            $table->double('request_switch');
+            $table->double('request_distance');
             $table->string('input_by', 30);
             $table->date('input_at');
             $table->text('comment');
